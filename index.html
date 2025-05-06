@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Media Website</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f4f4; }
+    header, footer { background: #222; color: white; padding: 10px 20px; text-align: center; }
+    main { padding: 20px; }
+    video { width: 100%; max-width: 600px; display: block; margin: auto; }
+    .controls, .video-section, .graphics, .animations, .audio-section, .model-section {
+      margin: 30px 0; text-align: center;
+    }
+    .hidden-audio { display: none; }
+    .img-transition:hover { transform: scale(1.1); transition: 0.5s; }
+    .animated { animation: fadeIn 2s ease-in; }
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    .button { background: #007BFF; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My Interactive Media Website</h1>
+  </header>
+
+  <main>
+
+    <!-- Interactive Video Section -->
+    <div class="video-section">
+      <h2>Choose Your Path Video</h2>
+      <video id="mainVideo" controls>
+        <source src="video1.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      <div class="controls">
+        <button class="button" onclick="playAlt('video1.mp4')">Watch Route A</button>
+        <button class="button" onclick="playAlt('video2.mp4')">Watch Route B</button>
+        <button class="button" onclick="window.open('https://youtu.be/znD5MTq-bUc')">Full Video on YouTube</button>
+      </div>
+    </div>
+
+    <!-- Graphics and Imagery Section -->
+    <div class="graphics">
+      <h2>Edited Graphics</h2>
+      <img src="graphic1.jpg" alt="Edited Graphic 1" width="300" class="img-transition">
+      <img src="graphic2.jpg" alt="Edited Graphic 2" width="300" class="img-transition">
+    </div>
+
+    <!-- 3D Content Section -->
+    <div class="model-section">
+      <h2>3D Interactive Content</h2>
+
+      <!-- New YouTube Video Embed -->
+      <h3>Related 3D Walkthrough Video</h3>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/znD5MTq-bUc" title="3D Walkthrough" frameborder="0" allowfullscreen></iframe>
+      <p>If the embedded version doesn't work, <a href="https://www.youtube.com/watch?v=znD5MTq-bUc" target="_blank">watch it on YouTube</a>.</p>
+    </div>
+
+    <!-- 2D/3D Animation Section -->
+    <div class="animations">
+      <h2>Animations on Hover</h2>
+      <button class="button animated">Hover Over Me</button>
+      <div class="img-transition" style="margin-top: 20px;">
+        <img src="graphic1.jpg" alt="Hover Image" width="300">
+      </div>
+    </div>
+
+    <!-- Audio Easter Egg Section -->
+    <div class="audio-section">
+      <h2>Hidden Audio Easter Egg</h2>
+      <p class="easter-egg" style="cursor: pointer; color: #007BFF;" onclick="playEasterEgg()">🐣 Click or hover me to reveal something...</p>
+      <audio id="secretAudio" class="hidden-audio">
+        <source src="easteregg.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Interactive Media Student Website</p>
+  </footer>
+
+  <script>
+    function playAlt(src) {
+      const video = document.getElementById("mainVideo");
+      video.src = src;
+      video.load();
+      video.play();
+    }
+
+    function playEasterEgg() {
+      const audio = document.getElementById("secretAudio");
+      audio.play();
+    }
+  </script>
+
+</body>
+</html>
